@@ -1,0 +1,29 @@
+version: "3"
+services:
+  react-app:
+    build:
+      context: ./my-app
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./my-app:/app
+
+  php-app:
+    build:
+      context: ./php-app
+      dockerfile: Dockerfile
+    ports:
+      - 8000:80
+    volumes:
+      - ./php-app:/var/www/html
+
+  mysql:
+    image: mysql:latest
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=mydatabase
+    volumes:
+      - ./mysql-data:/var/lib/mysql
