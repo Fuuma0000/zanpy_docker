@@ -1,5 +1,9 @@
 # 使い方
 
-1. my-app で npm install する
-2. docker-compose build --no-cache でビルドする
-3. docker compose up -d でコンテナを立ち上げる
+1. `cd my-app`
+2. `npm install`
+3. `docker compose up -d`
+
+# メモ
+
+一応動くようにはなったけど、Dockerfile がまだ合わせられてない
