@@ -1,2 +1,5 @@
 # mysql-data フォルダは要らない
 mysql-data/
+
+# node_moduleは要らない
+my-app/node_modules/
