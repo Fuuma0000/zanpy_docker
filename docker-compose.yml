@@ -5,7 +5,7 @@ services:
       context: ./my-app
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "3003:3000"
     volumes:
       - "./my-app:/usr/src/app"
     depends_on:
