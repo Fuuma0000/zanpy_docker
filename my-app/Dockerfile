@@ -1,20 +1,20 @@
-# ベースイメージの指定
+# ベースイメージの設定
 FROM node:20-alpine
 
 # 作業ディレクトリの設定
-WORKDIR /app
+WORKDIR /usr/src/app
 
-# package.jsonとpackage-lock.jsonのコピー
-COPY package*.json ./
+# 必要なファイルをコピー
+COPY package.json .
+COPY package-lock.json .
 
-# パッケージのインストール
-RUN npm install
+# 依存関係のインストール
+RUN npm ci
 
-# ソースコードのコピー
+# # 依存関係のインストール
+# RUN npm install react-scripts
+# RUN npm install --quiet
+
+# ソースコードをコピー
 COPY . .
 
-# ビルドコマンドの実行
-RUN npm run build
-
-# エントリーポイントの設定
-CMD ["npm", "start"]
