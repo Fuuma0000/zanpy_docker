@@ -29,10 +29,13 @@ services:
     image: mysql:8.0
     ports:
       - "3306:3306"
-    environment:
-      - MYSQL_DATABASE=mydatabase
-      - MYSQL_USER=myuser
-      - MYSQL_PASSWORD=mypassword
-      - MYSQL_ROOT_PASSWORD=rootpassword
     volumes:
-      - ./mysql-data:/var/lib/mysql
+      - ./mysql/initdb.d:/docker-entrypoint-initdb.d #初期データをマウントする場所
+      - ./mysql/db:/var/lib/mysql #ここにデータ永続化するためのファイルが入る。
+    environment:
+      - MYSQL_DATABASE=zanpy
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+      - MYSQL_ROOT_PASSWORD=root
+      - LANG=C.utf8
+      - LC_ALL=C.utf8
