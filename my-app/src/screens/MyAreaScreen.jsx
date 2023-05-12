@@ -1,6 +1,6 @@
 import Header from "./Header";
 import SearchBox from "../components/SearchBox";
-import MyAreaTable from "../components/MyAreaTable";
+import StatesTable from "../components/StatesTable";
 import { useSetRecoilState } from "recoil";
 import { myAreaOpenState } from "../atoms/MyAreaOpenState";
 
@@ -13,7 +13,7 @@ const MyAreaScreen = ({ rows, setRows }) => {
     <>
       <Header></Header>
       <SearchBox></SearchBox>
-      <MyAreaTable rows={rows} setRows={setRows}></MyAreaTable>
+      <StatesTable rows={rows} setRows={setRows}></StatesTable>
     </>
   );
 };

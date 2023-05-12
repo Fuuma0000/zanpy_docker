@@ -3,7 +3,7 @@ import Header from "./Header";
 import SearchBox from "../components/SearchBox";
 import { useSetRecoilState } from "recoil";
 import { myAreaOpenState } from "../atoms/MyAreaOpenState";
-import MyAreaTable from "../components/MyAreaTable";
+import StatesTable from "../components/StatesTable";
 
 const SearchScreen = ({ rows, setRows }) => {
   const setMyAreaOpen = useSetRecoilState(myAreaOpenState);
@@ -14,7 +14,7 @@ const SearchScreen = ({ rows, setRows }) => {
     <>
       <Header></Header>
       <SearchBox></SearchBox>
-      <MyAreaTable rows={rows} setRows={setRows}></MyAreaTable>
+      <StatesTable rows={rows} setRows={setRows}></StatesTable>
     </>
   );
 };
