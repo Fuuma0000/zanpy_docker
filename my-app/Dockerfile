@@ -19,4 +19,7 @@ RUN npm ci
 COPY . .
 
 # ポートの公開
+EXPOSE 3000
+
+# ポートの公開
 CMD ["npm", "start"]
