@@ -1,5 +1,5 @@
 -- 作成データベースの指定
-USE zanpy;
+use zanpy;
 
 -- エリア（ereas）
 create table areas(
@@ -13,7 +13,7 @@ create table types(
     type_cate varchar(255) NOT NULL
 );
 
---状態（statuses）
+-- 状態（statuses）
 create table statuses(
     status_id int(4) PRIMARY KEY,
     status_situ varchar(20) NOT NULL
