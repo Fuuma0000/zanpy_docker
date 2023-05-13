@@ -89,6 +89,7 @@ function App() {
             path={`/search`}
             element={<SearchScreen rows={rows} setRows={setRows} />}
           />
+          <Route path={`/*`} element={<LoginScreen />} />
         </Routes>
       </RecoilRoot>
     </BrowserRouter>
