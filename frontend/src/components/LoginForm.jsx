@@ -39,10 +39,7 @@ const LoginForm = () => {
       <form className='mx-auto max-w-sm'>
         <div className='flex flex-col gap-4 p-4 md:p-8'>
           <div>
-            <label
-              for='email'
-              className='mb-2 inline-block text-test font-arial font-black text-2xl tracking-widest'
-            >
+            <label className='mb-2 inline-block text-test font-arial font-black text-2xl tracking-widest'>
               社員ID
             </label>
             <input
@@ -53,10 +50,7 @@ const LoginForm = () => {
           </div>
 
           <div>
-            <label
-              for='password'
-              className='mb-2 inline-block text-test font-arial font-black text-2xl tracking-widest'
-            >
+            <label className='mb-2 inline-block text-test font-arial font-black text-2xl tracking-widest'>
               パスワード
             </label>
             <input
