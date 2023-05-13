@@ -1,6 +1,6 @@
 # 使い方
 
-1. `cd my-app`
+1. `cd frontend`
 2. `npm install`
 3. `docker compose up -d`
 
