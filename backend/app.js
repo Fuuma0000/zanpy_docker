@@ -16,7 +16,18 @@ app.get("/api", (req, res) => {
       console.log("接続終了(異常)");
       throw err;
     }
-    res.json({ message: results[0].ani_name });
+    res.json({ message: results });
+  });
+  console.log("接続終了(正常)");
+});
+
+app.get("/api/myarea", (req, res) => {
+  connection.query("SELECT * FROM `animals`", function (err, results, fields) {
+    if (err) {
+      console.log("接続終了(異常)");
+      throw err;
+    }
+    res.json({ message: results });
   });
   console.log("接続終了(正常)");
 });
