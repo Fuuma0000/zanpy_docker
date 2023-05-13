@@ -11,10 +11,6 @@ COPY package-lock.json .
 # 依存関係のインストール
 RUN npm ci
 
-# # 依存関係のインストール
-# RUN npm install react-scripts
-# RUN npm install --quiet
-
 # ソースコードをコピー
 COPY . .
 
