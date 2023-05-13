@@ -11,20 +11,6 @@ services:
     depends_on:
       - php-app
 
-  php-app:
-    build:
-      context: ./php-app
-      dockerfile: Dockerfile
-    ports:
-      - "80:80"
-    volumes:
-      - "./php-app:/var/www/html"
-    environment:
-      - MYSQL_HOST=mysql
-      - MYSQL_DATABASE=zanpy
-      - MYSQL_USER=user
-      - MYSQL_PASSWORD=password
-
   mysql:
     build:
       context: ./mysql
