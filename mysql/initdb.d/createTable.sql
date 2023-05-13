@@ -2,36 +2,35 @@
 use zanpy;
 
 -- エリア（ereas）
-create table areas(
-    area_id int(4) PRIMARY KEY,
-    area_name varchar(255) NOT NULL
+CREATE TABLE areas(
+    area_id int(4) PRIMARY KEY AUTO_INCREMENT,
+    area_name varchar(50) NOT NULL
 );
 
 -- 種族（types）
-create table types(
-    type_id int(4) PRIMARY KEY,
-    type_cate varchar(255) NOT NULL
+CREATE TABLE types(
+    type_id int(4) PRIMARY KEY AUTO_INCREMENT,
+    type_cate varchar(50) NOT NULL
 );
 
 -- 状態（statuses）
-create table statuses(
-    status_id int(4) PRIMARY KEY,
+CREATE TABLE statuses(
+    status_id int(4) PRIMARY KEY AUTO_INCREMENT,
     status_situ varchar(20) NOT NULL
 );
 
 -- ユーザ表（users）
-create table users(
-    user_id varchar(5),
-    password varchar(128) NOT NULL,
+CREATE TABLE users(
+    user_id varchar(5) PRIMARY KEY,
+    password varchar(128) NOT NULL CHECK,
     first_name varchar(20) NOT NULL,
     last_name varchar(20) NOT NULL,
     area_id int(4) NOT NULL,
-    PRIMARY KEY(user_id),
     FOREIGN KEY(area_id) REFERENCES areas(area_id)
 );
 
 -- 動物（animals）
-create table animals(
+CREATE TABLE animals(
     ani_id int(4) PRIMARY KEY,
     area_id int(4) NOT NULL,
     ani_name varchar(20) NOT NULL,
@@ -43,10 +42,10 @@ create table animals(
 );
 
 -- メモ（memos）
-create table memos(
-    memo_id int(4) PRIMARY KEY,
+CREATE TABLE memos(
+    memo_id int(4) PRIMARY KEY AUTO_INCREMENT,
     ani_id int(4) NOT NULL,
-    memo_text text NOT NULL,
+    memo_text varchar(255) NOT NULL,
     time datetime NOT NULL,
     FOREIGN KEY(ani_id) REFERENCES animals(ani_id)
 );
