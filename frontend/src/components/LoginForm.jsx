@@ -1,4 +1,5 @@
 import React from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 
@@ -9,6 +10,9 @@ const LoginForm = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
+
+    console.log(username);
+    console.log(password);
 
     try {
       const response = await axios.post("http://backend:3004/api/login", {
@@ -75,7 +79,7 @@ const LoginForm = () => {
               borderRadius: 10,
             }}
             className='w-6/12 '
-            onClick={handleLogin}
+            onClick={() => handleLogin}
           >
             ログイン
           </Button>
