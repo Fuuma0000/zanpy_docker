@@ -9,27 +9,36 @@ const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
+  // const handleLogin = async (e) => {
+  //   e.preventDefault();
 
-    console.log(username);
-    console.log(password);
+  //   console.log(username);
+  //   console.log(password);
 
-    try {
-      const response = await axios.post("http://backend:3004/api/login", {
-        username,
-        password,
-      });
+  //   try {
+  //     const response = await axios.post("http://backend:3004/api/login", {
+  //       username,
+  //       password,
+  //     });
 
-      // ログイン成功時の処理を記述します
-      console.log(response.data.message);
-      // ログイン後のリダイレクト先を設定します
-      navigate("/my-area");
-    } catch (error) {
-      // ログイン失敗時の処理を記述します
-      console.error(error.response.data.message);
-    }
-  };
+  //     // ログイン成功時の処理を記述します
+  //     console.log(response.data.message);
+  //     // ログイン後のリダイレクト先を設定します
+  //     navigate("/my-area");
+  //   } catch (error) {
+  //     if (
+  //       error.response &&
+  //       error.response.data &&
+  //       error.response.data.message
+  //     ) {
+  //       // ログイン失敗時の処理を記述します
+  //       console.error(error.response.data.message);
+  //     } else {
+  //       // エラーレスポンスが存在しない場合の処理を記述します
+  //       console.error("An error occurred during login", error);
+  //     }
+  //   }
+  // };
 
   return (
     <div className='bg-white rounded-3xl mx-auto w-4/12 p-8 shadow-2xl'>
@@ -74,7 +83,8 @@ const LoginForm = () => {
               borderRadius: 10,
             }}
             className='w-6/12'
-            onClick={handleLogin} // ログインボタンが押された時のハンドラー関数を指定
+            // onClick={handleLogin} // ログインボタンが押された時のハンドラー関数を指定
+            onClick={() => navigate("/my-area")}
           >
             ログイン
           </Button>
