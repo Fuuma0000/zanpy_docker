@@ -2,11 +2,20 @@ import React from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import Button from "@mui/material/Button";
-import { useRecoilValue } from "recoil";
+import { useRecoilValue, useRecoilState } from "recoil";
 import { myAreaOpenState } from "../atoms/MyAreaOpenState";
+import { selectedTypeState } from "../atoms/SelectedTypeState";
+import { selectedAreaState } from "../atoms/selectedAreaState";
+import { selectedNameState } from "../atoms/selectedNameState";
+import { selectedStatusState } from "../atoms/selectedStatusState";
 
 const SearchBox = () => {
   const isMyAreaOpen = useRecoilValue(myAreaOpenState);
+  const [selectedType, setSelectedType] = useRecoilState(selectedTypeState);
+  const [selectedArea, setSelectedArea] = useRecoilState(selectedAreaState);
+  const [selectedName, setSelectedName] = useRecoilState(selectedNameState);
+  const [selectedStatus, setSelectedStatus] =
+    useRecoilState(selectedStatusState);
 
   return (
     <div className='fixed left-16 top-64'>
@@ -24,6 +33,8 @@ const SearchBox = () => {
           {!isMyAreaOpen && (
             <Autocomplete
               options={areae}
+              value={selectedArea}
+              onChange={(event, value) => setSelectedArea(value)}
               sx={{
                 width: 160,
                 "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
@@ -38,7 +49,6 @@ const SearchBox = () => {
                     style: {
                       color: "#706F6F",
                       fontWeight: 900,
-                      //文字を太くさせたいけど、外枠からはみ出る
                       fontSize: 18,
                       position: "relative",
                       top: 28,
@@ -52,6 +62,8 @@ const SearchBox = () => {
           {/* 種類検索 */}
           <Autocomplete
             options={types}
+            value={selectedType}
+            onChange={(event, value) => setSelectedType(value)}
             sx={{
               width: 160,
               "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
@@ -66,7 +78,6 @@ const SearchBox = () => {
                   style: {
                     color: "#706F6F",
                     fontWeight: 900,
-                    //文字を太くさせたいけど、外枠からはみ出る
                     fontSize: 22,
                     position: isMyAreaOpen && "relative",
                     top: isMyAreaOpen && 28,
@@ -80,6 +91,8 @@ const SearchBox = () => {
           <TextField
             id='outlined-basic'
             label='名前'
+            value={selectedName}
+            onChange={(event) => setSelectedName(event.target.value)}
             sx={{
               width: 160,
               "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
@@ -91,7 +104,6 @@ const SearchBox = () => {
               style: {
                 color: "#706F6F",
                 fontWeight: 900,
-                //文字を太くさせたいけど、外枠からはみ出る
                 fontSize: 22,
               },
             }}
@@ -100,6 +112,8 @@ const SearchBox = () => {
           {/* ステータス検索 */}
           <Autocomplete
             options={status}
+            value={selectedStatus}
+            onChange={(event, value) => setSelectedStatus(value)}
             sx={{
               width: 160,
               "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
@@ -114,7 +128,6 @@ const SearchBox = () => {
                   style: {
                     color: "#706F6F",
                     fontWeight: 900,
-                    //文字を太くさせたいけど、外枠からはみ出る
                     fontSize: 18,
                   },
                 }}
@@ -127,7 +140,7 @@ const SearchBox = () => {
             <Button
               variant='contained'
               style={{
-                backgroundColor: "#88E186", //bg-main-green
+                backgroundColor: "#88E186",
                 fontWeight: 900,
                 fontSize: 24,
                 position: "relative",
