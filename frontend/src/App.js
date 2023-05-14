@@ -26,28 +26,28 @@ function App() {
   const [rows, setRows] = useState([]);
 
   //初回レンダリング時にAPIからデータを取得する
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("/api/myarea");
-        const dataWithKeys = response.data.message.map((item) =>
-          createData(
-            item.ani_id,
-            item.area_id,
-            item.ani_type,
-            item.ani_name,
-            item.status_id,
-            item.memos,
-            item.memoTime
-          )
-        );
-        setRows(dataWithKeys);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get("/api/myarea");
+  //       const dataWithKeys = response.data.message.map((item) =>
+  //         createData(
+  //           item.ani_id,
+  //           item.area_id,
+  //           item.ani_type,
+  //           item.ani_name,
+  //           item.status_id,
+  //           item.memos,
+  //           item.memoTime
+  //         )
+  //       );
+  //       setRows(dataWithKeys);
+  //     } catch (error) {
+  //       console.error(error);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
 
   return (
     <BrowserRouter>
