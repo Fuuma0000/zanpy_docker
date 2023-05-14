@@ -9,6 +9,8 @@ const MyAreaScreen = ({ rows, setRows }) => {
   //初回レンダリング時にmyAreaOpenStateをtrueにする
   setMyAreaOpen(true);
 
+  // /api/myareaにGETリクエストを送る
+
   return (
     <>
       <Header></Header>
