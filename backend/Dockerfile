@@ -13,5 +13,8 @@ RUN npm install
 # アプリケーションのソースコードをコピー
 COPY . .
 
+# ポートの公開
+EXPOSE 3004
+
 # アプリケーションの起動コマンドの指定
 CMD ["node", "index.js"]
