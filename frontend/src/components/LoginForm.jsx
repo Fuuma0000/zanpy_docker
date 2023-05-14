@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
+import axios from "axios";
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -72,8 +73,8 @@ const LoginForm = () => {
               marginRight: "auto",
               borderRadius: 10,
             }}
-            className='w-6/12 '
-            onClick={() => handleLogin}
+            className='w-6/12'
+            onClick={handleLogin} // ログインボタンが押された時のハンドラー関数を指定
           >
             ログイン
           </Button>
