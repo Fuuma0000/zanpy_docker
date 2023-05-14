@@ -8,17 +8,15 @@ import StatesTable from "../components/StatesTable";
 // import { useEffect } from "react";
 
 const SearchScreen = () => {
-  // const [searchRows, setSearchRows] = React.useState([]);
-
   const setMyAreaOpen = useSetRecoilState(myAreaOpenState);
   //初回レンダリング時にmyAreaOpenStateをfalseにする
   setMyAreaOpen(false);
 
-  // function createData(area, name, area, type, states, memos, memoTime) {
-  //   return { area, name, area, type, states, memos, memoTime };
-  // }
+  function createData(area, name, area, type, states, memos, memoTime) {
+    return { area, name, area, type, states, memos, memoTime };
+  }
 
-  // //初回レンダリング時にAPIからデータを取得する
+  //初回レンダリング時にAPIからデータを取得する
   // useEffect(() => {
   //   const fetchData = async () => {
   //     try {
